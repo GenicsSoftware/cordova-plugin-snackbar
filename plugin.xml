@@ -21,9 +21,9 @@
             </feature>
         </config-file>
 
-        <edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
+        <!--<edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
             <activity android:name="MainActivity" android:theme="@style/Theme.AppCompat.NoActionBar" />
-        </edit-config>
+        </edit-config>-->
 
         <framework src="com.android.support:appcompat-v7:+" />
         <framework src="com.android.support:design:+" />
