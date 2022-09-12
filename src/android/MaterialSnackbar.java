@@ -7,9 +7,16 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.view.View;
+
+import android.app.Activity;
+import android.content.Context;
+
+//import android.util.DisplayMetrics;
+//import android.widget.LinearLayout;
 
 public class MaterialSnackbar extends CordovaPlugin {
 
@@ -38,6 +45,9 @@ public class MaterialSnackbar extends CordovaPlugin {
 
                 final String button = arg_object.getString("button");
 
+                //DisplayMetrics dm = new DisplayMetrics();
+                //this.cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+
                 cordova.getActivity().runOnUiThread(new Runnable() {
                     public void run() {
 
@@ -61,6 +71,24 @@ public class MaterialSnackbar extends CordovaPlugin {
                               }
                           });
                         }
+
+
+                        TextView messageView = snackbar.getView().findViewById(com.google.android.material.R.id.snackbar_text);
+                        messageView.setMaxLines(3);
+
+                        /*View snackbarLayout = snackbar.getView();
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.FILL_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        );
+                        lp.topMargin = (int)((double)dm.heightPixels-500);
+
+
+                        // Margins relative to the parent view.
+                        snackbarLayout.setLayoutParams(lp);*/
+
+
+
                         snackbar.show();
                     }
                 });
